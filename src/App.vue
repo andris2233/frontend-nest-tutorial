@@ -8,6 +8,10 @@
 export default {
   name: 'App',
   components: {},
+  async created() {
+    const users = await this.$api.users.getAll();
+    console.log(users);
+  },
 };
 </script>
 
