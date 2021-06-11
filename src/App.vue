@@ -43,8 +43,8 @@ export default {
   components: {},
   data: () => ({
     form: {
-      email: '',
-      password: '',
+      email: 'user@jwt2.com',
+      password: '1234567',
     },
     users: [],
   }),
@@ -56,8 +56,10 @@ export default {
   methods: {
     async createUser() {
       const { email, password } = this.form;
-      const newUser = await this.$api.users.create({ email, password });
-      this.users.push(newUser);
+      // const newUser = await this.$api.users.create({ email, password });
+      // this.users.push(newUser);
+
+      this.$store.dispatch('auth/login', { email, password });
 
       this.clearForm();
     },
