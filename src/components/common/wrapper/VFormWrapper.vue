@@ -46,7 +46,7 @@ export default {
     box-shadow: 0 5px 10px rgba($color: #000000, $alpha: 0.1);
 
     &__header {
-      margin-bottom: 25px;
+      margin-bottom: 35px;
       color: $color_dark_text;
       text-align: center;
       font-size: 1.5rem;
