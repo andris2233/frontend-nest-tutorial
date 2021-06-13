@@ -23,7 +23,6 @@
         :value="value"
         :type="inputType"
         :disabled="disabled"
-        :required="required"
         :placeholder="placeholder"
         class="input__inner-item"
         @focus="onFocus"
@@ -62,7 +61,7 @@ export default {
     inputType: {
       type: String,
       default: 'text',
-      validator: (type) => ['text', 'number'].includes(type),
+      validator: (type) => ['text', 'number', 'password'].includes(type),
     },
     disabled: {
       type: Boolean,
@@ -155,6 +154,7 @@ export default {
         font-size: 1.2rem;
         background-color: transparent;
         padding: 10px 7px;
+        width: 100%;
       }
 
       &-close {
