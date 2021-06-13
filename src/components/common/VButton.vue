@@ -2,6 +2,7 @@
   <button
     v-if="!to"
     :type="typeButton"
+    :disabled="disabled"
     :class="classes"
     @click="$emit('click', $event)"
   >
@@ -116,7 +117,7 @@ export default {
       color: $color_blue;
       background-color: $color_white;
 
-      &:hover {
+      &:hover:not(:disabled) {
         color: $color_blue_light;
         box-shadow: 0 0 5px $color_blue_light;
       }
@@ -126,7 +127,7 @@ export default {
       color: $color_white;
       background-color: $color_blue;
 
-      &:hover {
+      &:hover:not(:disabled) {
         background-color: $color_blue_light;
       }
     }
