@@ -79,6 +79,7 @@ export default {
 
 <style lang="scss" scoped>
   @import url('./assets/scss/normalize.scss');
+  @import url('./assets/scss/main.scss');
   // * {
   //   box-sizing: border-box;
   // }
