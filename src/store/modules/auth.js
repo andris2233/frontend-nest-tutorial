@@ -17,15 +17,28 @@ export default {
     setUserData(state, userData) {
       state.userData = userData;
     },
+    logout(state) {
+      state.userData = null;
+      state.token = null;
+      localStorage.removeItem('token');
+    },
   },
 
   actions: {
-    login({ commit }, form) {
-      auth.login(form).then((response) => {
-        const { token } = response;
-        commit('setToken', token);
-        commit('setUserData', parseToken());
-      });
+    async login({ commit }, form) {
+      const response = await auth.login(form);
+      const { token } = response;
+      commit('setToken', token);
+      commit('setUserData', parseToken());
+    },
+    logout({ commit }) {
+      commit('logout');
+    },
+  },
+
+  getters: {
+    isAuthenticated(state) {
+      return !!(state.userData && state.token);
     },
   },
 };
